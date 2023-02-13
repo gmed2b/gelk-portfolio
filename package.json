@@ -10,9 +10,17 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.0.10",
 		"@astrojs/mdx": "^0.16.0",
 		"@astrojs/rss": "^2.1.0",
-		"@astrojs/sitemap": "^1.0.1"
+		"@astrojs/sitemap": "^1.0.1",
+		"astro": "^2.0.10"
+	},
+	"devDependencies": {
+		"cz-conventional-changelog": "^3.3.0"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	}
 }
