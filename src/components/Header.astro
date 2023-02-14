@@ -2,6 +2,7 @@
 import HeaderLink from './HeaderLink.astro'
 import { IoLogoGithub } from 'react-icons/io5'
 import ThemeToggleButton from './ThemeToggleButton'
+import FootprintIcon from './icons/FootprintIcon'
 ---
 
 <header class="fixed w-full p-2 z-20 backdrop-blur">
@@ -9,17 +10,18 @@ import ThemeToggleButton from './ThemeToggleButton'
     <nav class="flex items-center gap-3 text-base">
       <a href="/">
         <h2 class="font-semibold tracking-tighter p-2 font-rubik text-lg">
-          <!-- <FootprintIcon /> -->
-          Portfolio
+          <FootprintIcon />
         </h2>
       </a>
-      <div class="items-center gap-6 hidden sm:flex">
-        <HeaderLink href="/about">About</HeaderLink>
-        <HeaderLink href="https://github.com/withastro/astro" target="_blank">
+      <div class="flex-1"></div>
+      <div class="items-center gap-6 flex">
+        <HeaderLink
+          href="https://github.com/gmed2b/gelk-portfolio"
+          target="_blank"
+        >
           <IoLogoGithub /> Source
         </HeaderLink>
       </div>
-      <div class="flex-1"></div>
       <ThemeToggleButton client:load />
     </nav>
   </div>
