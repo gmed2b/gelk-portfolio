@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string
+  subtitle?: string
+}
+
+const { title, subtitle } = Astro.props
+---
+
+<section class="mb-16">
+  <div class="flex flex-col gap-2 mb-5">
+    <h1 class="text-4xl font-rubik">{title}</h1>
+    {
+      subtitle && (
+        <h2 class="pl-2 border-l-2 border-sky-600">
+          <Fragment set:html={subtitle} />
+        </h2>
+      )
+    }
+  </div>
+  <slot />
+</section>

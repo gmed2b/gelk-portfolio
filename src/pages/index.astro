@@ -1,5 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components'
+import { IoArrowForward } from 'react-icons/io5'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
 import Body from '../components/Body.astro'
 import BaseHead from '../components/BaseHead.astro'
@@ -7,7 +8,7 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Masthead from '../components/Masthead.astro'
 import Content from '../components/Content.astro'
-import { IoArrowForward } from 'react-icons/io5'
+import Section from '../components/Section.astro'
 
 interface Project {
   id: string
@@ -34,15 +35,12 @@ const projects = (await projectsRequest.json()).posts as Project[]
     <main class="pt-16">
       <Masthead />
       <Content>
-        <section>
-          <div class="flex flex-col gap-2 mb-5">
-            <h1 class="text-4xl font-rubik">Projects</h1>
-            <h2 class="pl-2 border-l-2 border-sky-600">
-              This section is all about <span class="font-bold"
-                >major projects</span
-              > that I carried out during MMI.
-            </h2>
-          </div>
+        <Section
+          title="Projects"
+          subtitle={`This section is all about
+            <span class="font-bold">major projects</span> that I carried out
+            during my two years MMI.`}
+        >
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {
               projects.map(project => (
@@ -71,7 +69,14 @@ const projects = (await projectsRequest.json()).posts as Project[]
               ))
             }
           </ul>
-        </section>
+        </Section>
+
+        <Section
+          title="Works"
+          subtitle={`Here&apos;s some <span class="font-bold">works</span> I&apos;ve made in web development for <span class="font-bold">business</span> or personal projects that I&apos;ve been working on.`}
+        />
+
+        <Section title="About me" />
       </Content>
     </main>
     <Footer />

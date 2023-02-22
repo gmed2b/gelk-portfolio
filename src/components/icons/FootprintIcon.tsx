@@ -1,5 +1,3 @@
-import React from 'react'
-
 export default function FootprintIcon() {
   return (
     <svg className="w-12" viewBox="0 0 217 139.5" fill="currentColor">
