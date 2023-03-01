@@ -3418,6 +3418,11 @@ pkg-dir@^4.2.0:
   dependencies:
     find-up "^4.0.0"
 
+pocketbase@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/pocketbase/-/pocketbase-0.12.0.tgz#ddc8616305776f3d26f230119562645d71b7cdf8"
+  integrity sha512-q+a9siWZisQu50dex6oZP0Xqxden9DDL1JalopVdkHntGHyBBcbcASPowaA8A0bO5grPjN1wSHnInwP+UuCp9A==
+
 postcss-import@^14.1.0:
   version "14.1.0"
   resolved "https://registry.yarnpkg.com/postcss-import/-/postcss-import-14.1.0.tgz#a7333ffe32f0b8795303ee9e40215dac922781f0"

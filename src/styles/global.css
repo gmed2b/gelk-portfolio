@@ -12,3 +12,19 @@ body {
   text-rendering: optimizeLegibility;
   overflow-wrap: break-word;
 }
+
+.lineclamp-1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.lineclamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.lineclamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}

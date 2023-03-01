@@ -1,7 +1,9 @@
 ---
 import { Image } from '@astrojs/image/components'
 import { IoArrowForward } from 'react-icons/io5'
+
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+
 import Body from '../components/Body.astro'
 import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
@@ -9,6 +11,7 @@ import Footer from '../components/Footer.astro'
 import Masthead from '../components/Masthead.astro'
 import Content from '../components/Content.astro'
 import Section from '../components/Section.astro'
+import Project from '../components/Project.astro'
 
 interface Project {
   id: string
@@ -44,28 +47,7 @@ const projects = (await projectsRequest.json()).posts as Project[]
           <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {
               projects.map(project => (
-                <li class="mb-4">
-                  <a href="">
-                    <Image
-                      class="mb-2 border border-slate-300 dark:border-zinc-700 rounded-xl"
-                      src={'/'}
-                      width={1920}
-                      height={1080}
-                      aspectRatio={2.0}
-                      alt="Project Thumbnail"
-                    />
-                    <h3 class="text-2xl font-bold truncate">{project.title}</h3>
-                    <p
-                      class="mt-2 opacity-70 overflow-hidden"
-                      style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3;"
-                    >
-                      {project.body}
-                    </p>
-                    <button class="inline-flex items-center gap-1 text-sky-600">
-                      Read More <IoArrowForward />
-                    </button>
-                  </a>
-                </li>
+                <Project body={project.body} title={project.title} />
               ))
             }
           </ul>
