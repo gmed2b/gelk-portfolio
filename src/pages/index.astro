@@ -1,13 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components'
-import { IoArrowForward } from 'react-icons/io5'
-
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
-
-import Body from '../components/Body.astro'
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 import Masthead from '../components/Masthead.astro'
 import Content from '../components/Content.astro'
 import Section from '../components/Section.astro'
@@ -28,39 +20,33 @@ const projectsRequest = await fetch(
 const projects = (await projectsRequest.json()).posts as Project[]
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <Body>
-    <Header title={SITE_TITLE} />
-    <main class="pt-16">
-      <Masthead />
-      <Content>
-        <Section
-          title="Projects"
-          subtitle={`This section is all about
+<BaseLayout>
+  <Masthead />
+  <Content>
+    <Section
+      title="Projects"
+      subtitle={`This section is all about
             <span class="font-bold">major projects</span> that I carried out
             during my two years MMI.`}
-        >
-          <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {
-              projects.map(project => (
-                <Project body={project.body} title={project.title} />
-              ))
-            }
-          </ul>
-        </Section>
+    >
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {
+          projects.map(project => (
+            <Project
+              id={project.id}
+              body={project.body}
+              title={project.title}
+            />
+          ))
+        }
+      </ul>
+    </Section>
 
-        <Section
-          title="Works"
-          subtitle={`Here&apos;s some <span class="font-bold">works</span> I&apos;ve made in web development for <span class="font-bold">business</span> or personal projects that I&apos;ve been working on.`}
-        />
+    <Section
+      title="Works"
+      subtitle={`Here&apos;s some <span class="font-bold">works</span> I&apos;ve made in web development for <span class="font-bold">business</span> or personal projects that I&apos;ve been working on.`}
+    />
 
-        <Section title="About me" />
-      </Content>
-    </main>
-    <Footer />
-  </Body>
-</html>
+    <Section title="About me" />
+  </Content>
+</BaseLayout>

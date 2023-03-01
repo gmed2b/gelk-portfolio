@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Content from '../../components/Content.astro'
+
+export async function getStaticPaths() {
+  const projectsRequest = await fetch(
+    'https://dummyjson.com/posts?limit=5&skip=68&select=id'
+  )
+  const projects = (await projectsRequest.json()).posts
+  return projects.map((project: any) => ({
+    params: {
+      ref: project.id
+    }
+  }))
+}
+
+const { ref } = Astro.params
+---
+
+<BaseLayout>
+  <Content>
+    {ref}
+  </Content>
+</BaseLayout>

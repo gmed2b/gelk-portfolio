@@ -3,14 +3,15 @@ import { Image } from '@astrojs/image/components'
 import { IoArrowForward } from 'react-icons/io5'
 
 interface Props {
+  id: string
   title: string
   body: string
 }
-const { title, body } = Astro.props
+const { id, title, body } = Astro.props
 ---
 
 <li class="mb-4">
-  <a href="">
+  <a href={`/projects/${id}`}>
     <Image
       class="mb-2 border border-slate-300 dark:border-zinc-700 rounded-xl"
       src="https://picsum.photos/1920/1080"
