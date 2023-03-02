@@ -1,17 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import Content from '../../components/Content.astro'
+import { supabase } from '../../database'
 
 export async function getStaticPaths() {
-  const projectsRequest = await fetch(
-    'https://dummyjson.com/posts?limit=5&skip=68&select=id'
-  )
-  const projects = (await projectsRequest.json()).posts
-  return projects.map((project: any) => ({
-    params: {
-      ref: project.id
-    }
-  }))
+  // Fetch all projects
+  // map them to an array of { params: { id } }
 }
 
 const { ref } = Astro.params

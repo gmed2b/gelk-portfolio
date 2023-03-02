@@ -4,6 +4,8 @@ import Masthead from '../components/Masthead.astro'
 import Content from '../components/Content.astro'
 import Section from '../components/Section.astro'
 import Project from '../components/Project.astro'
+import { supabase } from '../database'
+import { IoChevronForward } from 'react-icons/io5'
 
 interface Project {
   id: string
@@ -39,6 +41,18 @@ const projects = (await projectsRequest.json()).posts as Project[]
             />
           ))
         }
+        <li class="mb-4">
+          <div class="grid place-content-center h-full">
+            <a href={`/projects`} class="grid place-content-center p-5">
+              <button
+                class="inline-flex items-center justify-center gap-1 text-sky-600"
+              >
+                <IoChevronForward fontSize={42} className={'text-sky-600'} />
+              </button>
+              <p class="text-sky-600">See more</p>
+            </a>
+          </div>
+        </li>
       </ul>
     </Section>
 
