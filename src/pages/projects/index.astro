@@ -3,20 +3,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import Content from '../../components/Content.astro'
 import Section from '../../components/Section.astro'
 import Project from '../../components/Project.astro'
-
-interface Project {
-  id: string
-  title: string
-  body: string
-  userId: string
-  tags: string[]
-  reactions: number
-}
+import type { IProject } from '../../interfaces/Project'
 
 const projectsRequest = await fetch(
   'https://dummyjson.com/posts?limit=5&skip=68'
 )
-const projects = (await projectsRequest.json()).posts as Project[]
+const projects = (await projectsRequest.json()).posts as IProject[]
 ---
 
 <BaseLayout>
