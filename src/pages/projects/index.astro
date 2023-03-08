@@ -1,10 +1,8 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
-import Masthead from '../components/Masthead.astro'
-import Content from '../components/Content.astro'
-import Section from '../components/Section.astro'
-import Project from '../components/Project.astro'
-import SeeMore from '../components/SeeMore.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Content from '../../components/Content.astro'
+import Section from '../../components/Section.astro'
+import Project from '../../components/Project.astro'
 
 interface Project {
   id: string
@@ -22,14 +20,12 @@ const projects = (await projectsRequest.json()).posts as Project[]
 ---
 
 <BaseLayout>
-  <Masthead />
   <Content>
     <Section
       title="Projects"
       subtitle={`This section is all about
             <span class="font-bold">major projects</span> that I carried out
             during my two years MMI.`}
-      location={'/projects'}
     >
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
@@ -41,15 +37,7 @@ const projects = (await projectsRequest.json()).posts as Project[]
             />
           ))
         }
-        <SeeMore location={'/projects'} />
       </ul>
     </Section>
-
-    <Section
-      title="Works"
-      subtitle={`Here&apos;s some <span class="font-bold">works</span> I&apos;ve made in web development for <span class="font-bold">business</span> or personal projects that I&apos;ve been working on.`}
-    />
-
-    <Section title="About me" />
   </Content>
 </BaseLayout>

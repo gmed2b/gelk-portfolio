@@ -1,0 +1,18 @@
+---
+import { IoChevronForward } from 'react-icons/io5'
+
+const { location } = Astro.props
+---
+
+<li class="mb-4">
+  <div class="grid place-content-center h-full">
+    <a href={location} class="grid place-content-center p-5">
+      <button
+        class="inline-flex items-center justify-center gap-1 text-sky-600"
+      >
+        <IoChevronForward fontSize={42} className={'text-sky-600'} />
+      </button>
+      <p class="text-sky-600">See more</p>
+    </a>
+  </div>
+</li>

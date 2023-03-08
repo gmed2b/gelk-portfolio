@@ -2,14 +2,17 @@
 interface Props {
   title: string
   subtitle?: string
+  location?: string
 }
 
-const { title, subtitle } = Astro.props
+const { title, subtitle, location } = Astro.props
 ---
 
 <section class="mb-16">
   <div class="flex flex-col gap-2 mb-5">
-    <h1 class="text-4xl font-rubik">{title}</h1>
+    <a href={location}>
+      <h1 class="text-4xl font-rubik">{title}</h1>
+    </a>
     {
       subtitle && (
         <h2 class="pl-2 border-l-2 border-sky-600">
