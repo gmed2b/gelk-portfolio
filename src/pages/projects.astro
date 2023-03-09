@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content'
+
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Content from '../components/Content.astro'
+import Section from '../components/Section.astro'
+import Project from '../components/Project.astro'
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+)
+console.log(projects)
+---
+
+<BaseLayout>
+  <Content classNames={'mt-12'}>
+    <Section
+      title="Projects"
+      subtitle={`This section is all about
+            <span class="font-bold">major projects</span> that I carried out
+            during my two years MMI.`}
+    >
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {projects.map(project => <Project project={project} />)}
+      </ul>
+    </Section>
+  </Content>
+</BaseLayout>

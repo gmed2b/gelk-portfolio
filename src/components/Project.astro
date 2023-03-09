@@ -1,29 +1,31 @@
 ---
 import { Image } from '@astrojs/image/components'
 import { IoArrowForward } from 'react-icons/io5'
-import type { Database } from '../types/supabase'
 
-interface Props {
-  project: Database['public']['Tables']['projects']['Row']
+type Props = {
+  url: string
+  title: string
+  description: string
+  heroImage: string
 }
 
-const { project } = Astro.props
+const { url, title, description, heroImage } = Astro.props
 ---
 
 <li class="mb-4">
-  <a href={`/projects/${project.id}`}>
+  <a href={url}>
     <Image
       class="mb-2 border border-slate-300 dark:border-zinc-700 rounded-xl"
-      src="https://picsum.photos/1920/1080"
+      src={heroImage || '/placeholder-hero.jpg'}
       alt="Project Thumbnail"
       format={'webp'}
       width={1920}
       height={1080}
       aspectRatio={16 / 9}
     />
-    <h3 class="text-2xl font-bold truncate">{project.title}</h3>
-    <p class="mt-2 opacity-70 overflow-hidden lineclamp-3">
-      {project.description}
+    <h3 class="text-2xl font-bold truncate">{title}</h3>
+    <p class="mt-1 opacity-70 overflow-hidden lineclamp-3">
+      {description}
     </p>
     <button class="inline-flex items-center gap-1 text-sky-600">
       Read More <IoArrowForward />

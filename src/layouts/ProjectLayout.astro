@@ -7,6 +7,18 @@ import BaseHead from '../components/BaseHead.astro'
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import Content from '../components/Content.astro'
+
+interface Props {
+  content: {
+    title: string
+    description: string
+    heroImage: string
+  }
+}
+
+const {
+  content: { title, description, heroImage }
+} = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -17,11 +29,11 @@ import Content from '../components/Content.astro'
   <Body>
     <Header />
     <main class="pt-16">
-      <Content>
+      <Content classNames={'mt-12'}>
         <div class="mb-8">
           <Image
             class="mb-2 border border-slate-300 dark:border-zinc-700 rounded-xl"
-            src="https://picsum.photos/1920/1080"
+            src={heroImage ?? '/placeholder-social.jpg'}
             alt="Project Thumbnail"
             format={'webp'}
             width={1920}
@@ -29,6 +41,10 @@ import Content from '../components/Content.astro'
             aspectRatio={16 / 9}
           />
         </div>
+        <h1 class="text-3xl mb-3 font-rubik">{title}</h1>
+        <p class="mb-2">{description}</p>
+        <hr class="my-3 border-top border-zinc-400" />
+        <slot />
       </Content>
     </main>
     <Footer />
