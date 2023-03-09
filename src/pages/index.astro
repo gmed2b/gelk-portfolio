@@ -5,12 +5,12 @@ import Content from '../components/Content.astro'
 import Section from '../components/Section.astro'
 import Project from '../components/Project.astro'
 import SeeMore from '../components/SeeMore.astro'
-import type { IProject } from '../interfaces/Project'
+import { supabase } from '../database'
 
-const projectsRequest = await fetch(
-  'https://dummyjson.com/posts?limit=3&skip=68'
-)
-const projects = (await projectsRequest.json()).posts as IProject[]
+let { data: projects, error } = await supabase
+  .from('projects')
+  .select('*')
+  .limit(3)
 ---
 
 <BaseLayout>
@@ -23,18 +23,23 @@ const projects = (await projectsRequest.json()).posts as IProject[]
             during my two years MMI.`}
       location={'/projects'}
     >
-      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {
-          projects.map(project => (
-            <Project
-              id={project.id}
-              body={project.body}
-              title={project.title}
-            />
-          ))
-        }
-        <SeeMore location={'/projects'} />
-      </ul>
+      {
+        error ? (
+          <div class="text-center">
+            <p class="text-2xl font-bold">Something went wrong</p>
+            <p class="text-xl">Please try again later</p>
+          </div>
+        ) : (
+          projects && (
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {projects.map(project => (
+                <Project project={project} />
+              ))}
+              <SeeMore location={'/projects'} />
+            </ul>
+          )
+        )
+      }
     </Section>
 
     <Section
