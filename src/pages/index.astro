@@ -17,6 +17,7 @@ const projects = (await Astro.glob('./projects/*.md')).sort(
   <Masthead />
   <Content>
     <Section
+      id="projects"
       title="Projects"
       subtitle={`This section is all about
             <span class="font-bold">major projects</span> that I carried out
@@ -25,24 +26,27 @@ const projects = (await Astro.glob('./projects/*.md')).sort(
     >
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
-          projects.map(project => (
-            <Project
-              url={project.url ?? '/'}
-              title={project.frontmatter.title}
-              description={project.frontmatter.description}
-              heroImage={project.frontmatter.heroImage}
-            />
-          ))
+          projects
+            .slice(-2)
+            .map(project => (
+              <Project
+                url={project.url ?? '/'}
+                title={project.frontmatter.title}
+                description={project.frontmatter.description}
+                heroImage={project.frontmatter.heroImage}
+              />
+            ))
         }
         <SeeMore location={'/projects'} />
       </ul>
     </Section>
 
     <Section
+      id="works"
       title="Works"
       subtitle={`Here&apos;s some <span class="font-bold">works</span> I&apos;ve made in web development for <span class="font-bold">business</span> or personal projects that I&apos;ve been working on.`}
     />
 
-    <Section title="About me" />
+    <Section id="about" title="About me" />
   </Content>
 </BaseLayout>

@@ -1,4 +1,4 @@
-# Astro Starter Kit: Blog
+# Mehdi Ghoulam's Portfolio
 
 > 🧑‍🚀🚀 **Powered by** [Astro](https://astro.build/) and [React](https://reactjs.org/)!
 

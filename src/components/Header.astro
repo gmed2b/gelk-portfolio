@@ -3,6 +3,7 @@ import HeaderLink from './HeaderLink.astro'
 import { IoLogoGithub } from 'react-icons/io5'
 import ThemeToggleButton from './ThemeToggleButton'
 import FootprintIcon from './icons/FootprintIcon'
+
 ---
 
 <header class="fixed w-full p-2 z-20 backdrop-blur">
@@ -13,8 +14,8 @@ import FootprintIcon from './icons/FootprintIcon'
           <FootprintIcon />
         </h2>
       </a>
-      <div class="flex-1"></div>
       <div class="items-center gap-6 flex">
+        <HeaderLink href="/#about">About</HeaderLink>
         <HeaderLink
           href="https://github.com/gmed2b/gelk-portfolio"
           target="_blank"
@@ -22,6 +23,7 @@ import FootprintIcon from './icons/FootprintIcon'
           <IoLogoGithub /> Source
         </HeaderLink>
       </div>
+      <div class="flex-1"></div>
       <ThemeToggleButton client:load />
     </nav>
   </div>
