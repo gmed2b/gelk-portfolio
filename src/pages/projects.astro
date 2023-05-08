@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 import Content from '../components/Content.astro'
 import Section from '../components/Section.astro'
 import Project from '../components/Project.astro'
+import PillsFilterButton from '../components/PillsFilterButton'
 
 const projects = (await Astro.glob('./projects/*.md')).sort((a, b) => {
   return a.frontmatter.title > b.frontmatter.title ? 1 : -1
@@ -18,11 +19,16 @@ const projects = (await Astro.glob('./projects/*.md')).sort((a, b) => {
             <span class="font-bold">major projects</span> that I carried out
             during my two years MMI.`}
     >
+    <!-- <div class="flex flex-wrap gap-2 mb-4">
+      <PillsFilterButton title="All" />
+      <PillsFilterButton title="1st year" />
+      <PillsFilterButton title="2nd year" />
+    </div> -->
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
           projects.map(project => (
             <Project
-              url={project.url ?? '/'}
+              url={project.url ?? '/projects'}
               title={project.frontmatter.title}
               description={project.frontmatter.description}
               heroImage={project.frontmatter.heroImage}
