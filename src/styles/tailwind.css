@@ -4,9 +4,9 @@
 
 @layer components {
   .pill {
-    @apply bg-transparent border-2 border-sky-600 text-sky-600 dark:text-sky-200 font-medium mr-2 px-3 py-0.5 rounded-full
+    @apply bg-transparent border-2 border-sky-600 text-sky-600 dark:text-sky-200 font-medium mr-2 px-3 py-0.5 rounded-full;
   }
   .pill-active {
-    @apply bg-sky-600 text-sky-100
+    @apply bg-sky-600 text-sky-100;
   }
 }

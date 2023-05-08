@@ -1,0 +1,31 @@
+---
+import { IoArrowForward } from 'react-icons/io5'
+
+type Props = {
+  url: string
+  title: string
+  description: string
+  heroImage: string
+}
+
+const { url, title, description, heroImage } = Astro.props
+---
+
+<li class="mb-4">
+  <a href={url} class="flex gap-3">
+    <img
+      class="border border-slate-300 dark:border-zinc-700 rounded-xl h-auto max-w-xs"
+      src={heroImage || '/placeholder-hero.jpg'}
+      alt="Project Thumbnail"
+    />
+    <div>
+      <h3 class="text-2xl font-bold truncate">{title}</h3>
+      <p class="mt-1 opacity-70 overflow-hidden lineclamp-3 w-10/12">
+        {description}
+      </p>
+      <button class="inline-flex items-center gap-1 text-sky-600">
+        Read More <IoArrowForward />
+      </button>
+    </div>
+  </a>
+</li>

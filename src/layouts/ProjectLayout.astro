@@ -21,7 +21,6 @@ interface Props {
 const {
   content: { heroImage, title, description, targetedCompetences }
 } = Astro.props
-
 ---
 
 <!DOCTYPE html>
@@ -30,12 +29,17 @@ const {
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <span class="list-disc text-3xl"></span>
-  <span class="list-decimal mb-1 underline underline-offset-2 hover:text-sky-500 decoration-sky-500"></span>
+  <span
+    class="list-decimal mb-1 underline underline-offset-2 hover:text-sky-500 decoration-sky-500"
+  ></span>
   <Body>
     <Header />
     <main class="pt-16">
       <Content classNames={'mt-12'}>
-        <a href="/projects" class="inline-flex items-center gap-1 text-sky-600 mb-3">
+        <a
+          href="/projects"
+          class="inline-flex items-center gap-1 text-sky-600 mb-3"
+        >
           <IoArrowBack /> Back
         </a>
         <div class="mb-5">
@@ -51,13 +55,17 @@ const {
         </div>
         <h1 class="text-4xl mb-2 font-rubik">{title}</h1>
         <p class="mb-3">{description}</p>
-        {targetedCompetences && (
-          <div class="flex gap-2">
-            {targetedCompetences.map((competence) => (
-              <span class="bg-sky-900 text-white p-1 px-3 rounded-full text-sm">{competence}</span>
-            ))}
-          </div>
-        )}
+        {
+          targetedCompetences && (
+            <div class="flex gap-2">
+              {targetedCompetences.map(competence => (
+                <span class="bg-sky-700 text-white p-1 px-3 rounded-full text-sm">
+                  {competence}
+                </span>
+              ))}
+            </div>
+          )
+        }
         <hr class="my-3 border-top border-zinc-400" />
         <slot />
       </Content>
