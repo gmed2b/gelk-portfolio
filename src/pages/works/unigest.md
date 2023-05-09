@@ -1,6 +1,6 @@
 ---
 id: 'unigest-webgestion'
-layout: '../../layouts/ProjectLayout.astro'
+layout: '../../layouts/WorkLayout.astro'
 heroImage: '/placeholder-hero.jpg'
 title: "Lead Web Developer"
 subtitle: "Unigest Solutions"

@@ -14,13 +14,14 @@ interface Props {
     id: string
     heroImage: string
     title: string
+    subtitle: string
     description: string
     targetedCompetences: string[]
   }
 }
 
 const {
-  content: { id, heroImage, title, description, targetedCompetences }
+  content: { id, heroImage, title, subtitle, description, targetedCompetences }
 } = Astro.props
 
 const files = (await Astro.glob('../../public/rapports/*.pdf')).filter(
@@ -43,7 +44,7 @@ const files = (await Astro.glob('../../public/rapports/*.pdf')).filter(
     <main class="pt-16">
       <Content classNames={'mt-12'}>
         <a
-          href="/projects"
+          href="/works"
           class="inline-flex items-center gap-1 text-sky-600 mb-3"
         >
           <IoArrowBack /> Back
@@ -59,7 +60,8 @@ const files = (await Astro.glob('../../public/rapports/*.pdf')).filter(
             aspectRatio={16 / 9}
           />
         </div>
-        <h1 class="text-4xl mb-2 font-rubik">{title}</h1>
+        <h1 class="text-4xl font-rubik">{title}</h1>
+        <h2 class="text-xl mb-2 font-light">{subtitle}</h2>
         <p class="mb-3">{description}</p>
         {
           targetedCompetences && (

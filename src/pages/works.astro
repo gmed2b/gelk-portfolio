@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Content from '../components/Content.astro'
+import Section from '../components/Section.astro'
+import WorkCompact from '../components/WorkCompact.astro'
+
+const works = (await Astro.glob('./works/*.md')).sort((a, b) => {
+  return a.frontmatter.title > b.frontmatter.title ? 1 : -1
+})
+---
+
+<BaseLayout>
+  <Content classNames={'mt-12'}>
+    <Section
+      id="works"
+      title="Works"
+      subtitle={`Here's some works I've made in web development
+            for business or personal projects that I've been working on.`}
+    >
+      <ul class="grid grid-cols-1 gap-4">
+        {
+          works.map(item => (
+            <WorkCompact
+              url={item.url ?? '/projects'}
+              title={item.frontmatter.title}
+              subtitle={item.frontmatter.subtitle}
+              description={item.frontmatter.description}
+              heroImage={item.frontmatter.heroImage}
+            />
+          ))
+        }
+      </ul>
+    </Section>
+  </Content>
+</BaseLayout>
