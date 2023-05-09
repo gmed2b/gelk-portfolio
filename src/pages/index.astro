@@ -5,12 +5,11 @@ import Content from '../components/Content.astro'
 import Section from '../components/Section.astro'
 import Project from '../components/Project.astro'
 import SeeMore from '../components/SeeMore.astro'
+import Work from '../components/Work.astro'
 
-const projects = (await Astro.glob('./projects/*.md')).sort(
-  (a: any, b: any) =>
-    new Date(b.frontmatter.pubDate).valueOf() -
-    new Date(a.frontmatter.pubdate).valueOf()
-)
+const projects = (await Astro.glob('./projects/*.md'))
+const works = (await Astro.glob('./works/*.md'))
+
 ---
 
 <BaseLayout>
@@ -26,15 +25,15 @@ const projects = (await Astro.glob('./projects/*.md')).sort(
     >
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
-          projects
+          [...projects]
             .reverse()
             .slice(0, 3)
-            .map(project => (
+            .map(item => (
               <Project
-                url={project.url ?? '/'}
-                title={project.frontmatter.title}
-                description={project.frontmatter.description}
-                heroImage={project.frontmatter.heroImage}
+                url={item.url ?? '/'}
+                title={item.frontmatter.title}
+                description={item.frontmatter.description}
+                heroImage={item.frontmatter.heroImage}
               />
             ))
         }
@@ -48,7 +47,25 @@ const projects = (await Astro.glob('./projects/*.md')).sort(
       subtitle={`Here&apos;s some <span class="font-bold">works</span>
             I&apos;ve made in web development for <span class="font-bold">business</span>
             or personal projects that I&apos;ve been working on.`}
-    />
+    >
+      <ul class="flex flex-col gap-4">
+        {
+          [...works]
+            .slice(0, 2)
+            .map((item, idx) => (
+              <Work
+                url={item.url ?? '/'}
+                title={item.frontmatter.title}
+                subtitle={item.frontmatter.subtitle}
+                description={item.frontmatter.description}
+                heroImage={item.frontmatter.heroImage}
+                reverse={idx % 2 === 0}
+              />
+            ))
+        }
+        <SeeMore location={'/projects'} />
+      </ul>
+    </Section>
 
     <Section id="about" title="About me" />
   </Content>
