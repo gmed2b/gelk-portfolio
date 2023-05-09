@@ -11,6 +11,7 @@ import { IoArrowBack } from 'react-icons/io5'
 
 interface Props {
   content: {
+    id: string
     heroImage: string
     title: string
     description: string
@@ -19,8 +20,13 @@ interface Props {
 }
 
 const {
-  content: { heroImage, title, description, targetedCompetences }
+  content: { id, heroImage, title, description, targetedCompetences }
 } = Astro.props
+
+const files = (await Astro.glob('../../public/rapports/*.pdf')).filter(
+  file => file.default.includes(id)
+)
+
 ---
 
 <!DOCTYPE html>
@@ -67,6 +73,17 @@ const {
           )
         }
         <hr class="my-3 border-top border-zinc-400" />
+        <div class="flex gap-2 mb-4">
+          {files.map(file => (
+            <a
+              href={file.default}
+              target="_blank"
+              class="border-2 border-sky-700 text-sky-700 p-1 px-3 rounded-md text-sm"
+            >
+              {file.default.split('/').pop()}
+            </a>
+          ))}
+        </div>
         <slot />
       </Content>
     </main>
