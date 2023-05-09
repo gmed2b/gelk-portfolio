@@ -27,7 +27,8 @@ const projects = (await Astro.glob('./projects/*.md')).sort(
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
         {
           projects
-            .slice(-3)
+            .reverse()
+            .slice(0, 3)
             .map(project => (
               <Project
                 url={project.url ?? '/'}
@@ -44,7 +45,9 @@ const projects = (await Astro.glob('./projects/*.md')).sort(
     <Section
       id="works"
       title="Works"
-      subtitle={`Here&apos;s some <span class="font-bold">works</span> I&apos;ve made in web development for <span class="font-bold">business</span> or personal projects that I&apos;ve been working on.`}
+      subtitle={`Here&apos;s some <span class="font-bold">works</span>
+            I&apos;ve made in web development for <span class="font-bold">business</span>
+            or personal projects that I&apos;ve been working on.`}
     />
 
     <Section id="about" title="About me" />
