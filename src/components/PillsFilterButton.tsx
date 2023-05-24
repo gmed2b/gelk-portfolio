@@ -7,9 +7,14 @@ interface Props {
 export default function PillsFilterButton(props: Props) {
   const [isActive, setIsActive] = React.useState(false)
 
-  const handleClick = () => {
-    console.log('clicked')
-  }
-
-  return <button onClick={handleClick}>{props.title}</button>
+  return (
+    <button
+      className={`${
+        isActive ? 'bg-sky-700' : 'bg-transparent border-sky-700 border-2'
+      } text-white p-1 px-3 rounded-full text-sm`}
+      onClick={() => setIsActive(!isActive)}
+    >
+      {props.title}
+    </button>
+  )
 }

@@ -13,7 +13,7 @@ const { url, title, description, heroImage } = Astro.props
 ---
 
 <li class="mb-4">
-  <a href={url} class="flex gap-3 w-full">
+  <a href={url} class="flex flex-col md:flex-row gap-3 w-full">
     <Image
       class="border border-slate-300 dark:border-zinc-700 rounded-xl"
       src={heroImage || '/placeholder-hero.jpg'}
@@ -24,8 +24,8 @@ const { url, title, description, heroImage } = Astro.props
       aspectRatio={2.0}
     />
     <div class="w-full">
-      <h3 class="text-2xl font-bold truncate w-5/6">{title}</h3>
-      <p class="mt-1 opacity-70 overflow-hidden lineclamp-3 w-10/12 text-justify">
+      <h3 class="text-2xl font-bold truncate md:w-5/6">{title}</h3>
+      <p class="mt-1 opacity-70 overflow-hidden lineclamp-3 md:w-10/12 text-justify">
         {description}
       </p>
       <button class="inline-flex items-center gap-1 text-sky-600">

@@ -14,11 +14,11 @@ const { url, title, subtitle, description, heroImage, reverse = false } = Astro.
 ---
 
 <li class="mb-4">
-  <a href={url} class=`flex gap-3 w-full ${reverse && 'flex-row-reverse'}`>
-    <div class=`flex flex-col ${reverse ? 'items-end' : 'items-start'}`>
-      <h3 class=`text-2xl font-bold w-5/6 ${reverse ? 'border-r-2 pr-2 text-end' : 'border-l-2 pl-2'} border-red-500`>{title}</h3>
+  <a href={url} class="flex flex-col md:flex-row gap-3 w-full">
+    <div class="flex flex-col items-start">
+      <h3 class="text-2xl font-bold w-5/6 border-l-2 pl-2 border-red-500">{title}</h3>
       <h5 class="mb-1 font-light text text-slate-500 dark:text-slate-300">{subtitle}</h5>
-      <p class=`mb-2 opacity-70 overflow-hidden w-11/12 text-justify`>
+      <p class="mb-2 opacity-70 overflow-hidden w-11/12 text-justify">
         {description}
       </p>
       <button class="border-2 border-sky-600 rounded-md py-1 px-2 text-sm text-sky-600">
@@ -26,7 +26,7 @@ const { url, title, subtitle, description, heroImage, reverse = false } = Astro.
       </button>
     </div>
     <Image
-      class="border border-slate-300 dark:border-zinc-700 rounded-xl"
+      class="border border-slate-300 dark:border-zinc-700 rounded-xl self-center"
       src={heroImage || '/placeholder-hero.jpg'}
       alt="Project Thumbnail"
       format={'webp'}

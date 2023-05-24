@@ -58,7 +58,6 @@ const works = (await Astro.glob('./works/*.md'))
                 subtitle={item.frontmatter.subtitle}
                 description={item.frontmatter.description}
                 heroImage={item.frontmatter.heroImage}
-                reverse={idx % 2 === 0}
               />
             ))
         }
