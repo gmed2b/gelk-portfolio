@@ -51,9 +51,9 @@ const works = (await Astro.glob('./works/*.md'))
       <ul class="flex flex-col gap-4">
         {
           [...works]
-            .map((item, idx) => (
+            .map(item => (
               <Work
-                url={item.url ?? '/'}
+                url={item.frontmatter.url ?? item.url ?? '/'}
                 title={item.frontmatter.title}
                 subtitle={item.frontmatter.subtitle}
                 description={item.frontmatter.description}

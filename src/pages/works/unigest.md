@@ -2,6 +2,7 @@
 id: 'unigest-webgestion'
 layout: '../../layouts/WorkLayout.astro'
 heroImage: '/placeholder-hero.jpg'
+url: 'https://www.unigest.fr'
 title: "Lead Web Developer"
 subtitle: "Unigest Solutions"
 description: "Development of a web managment software used by leading french industry giants (SBC Holding, Colas, Aximum, Engie Cofely, and more).
