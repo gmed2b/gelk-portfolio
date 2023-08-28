@@ -33,3 +33,13 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
 }
+
+
+#technologies-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0px;
+  top: 5px;
+  color: #38bdf8;
+  line-height: 12px;
+}

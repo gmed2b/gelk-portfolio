@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "copy": "sudo cp -R ~/gelk-portfolio/dist/* /var/www/gelk.tech"
   },
   "dependencies": {
     "@astrojs/image": "^0.14.1",

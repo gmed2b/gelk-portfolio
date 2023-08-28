@@ -1,13 +1,13 @@
 ---
+import { Image } from '@astrojs/image/components'
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Masthead from '../components/Masthead.astro'
 import Content from '../components/Content.astro'
 import Section from '../components/Section.astro'
-import Project from '../components/Project.astro'
 import SeeMore from '../components/SeeMore.astro'
 import Work from '../components/Work.astro'
 
-const projects = (await Astro.glob('./projects/*.md'))
+// const projects = (await Astro.glob('./projects/*.md'))
 const works = (await Astro.glob('./works/*.md'))
 
 ---
@@ -15,7 +15,7 @@ const works = (await Astro.glob('./works/*.md'))
 <BaseLayout>
   <Masthead />
   <Content>
-    <Section
+    <!-- <Section
       id="projects"
       title="Projects"
       subtitle={`This section is all about
@@ -39,7 +39,7 @@ const works = (await Astro.glob('./works/*.md'))
         }
         <SeeMore location={'/projects'} />
       </ul>
-    </Section>
+    </Section> -->
 
     <Section
       id="works"
@@ -61,10 +61,42 @@ const works = (await Astro.glob('./works/*.md'))
               />
             ))
         }
-        <SeeMore location={'/projects'} />
+        <SeeMore location={'/works'} />
       </ul>
     </Section>
 
-    <Section id="about" title="About me" />
+    <Section id="about" title="About me">
+      <div class="flex flex-col sm:flex-row-reverse gap-3">
+        <Image
+          class="border border-slate-300 dark:border-zinc-700 rounded-full self-start"
+          src={'/images/personal-photo.jpg'}
+          alt="Personal photo"
+          format={'webp'}
+          width={200}
+          height={200}
+          aspectRatio={1}
+        />
+        <div>
+          <p>
+            Hello, my name is <b>Mehdi Ghoulam</b>, a 20-year-old student at the University of Corte in Corsica, and a <b class="text-sky-600">full-stack web and mobile developer</b>. Having started my apprenticeship as a self-taught learner over three years ago, I've acquired <b class="text-sky-600">solid</b> experience and <b class="text-sky-600">versatility</b> in various programming languages and frameworks.
+          </p>
+          <br>
+          <p>
+            Graduated with a high school diploma and a newly acquired Higher National Diploma. I'm currently working on a <b>university degree in <span class="text-sky-600">computer science</span></b>. I am also a <b>freelance developer</b> and I work on <b>personal projects</b> in my spare time.
+          </p>
+          <br>
+          <p class="mb-2">
+            Here are a few technologies I've been working with recently:
+          </p>
+          <ul id="technologies-list" class="flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-3 md:w-4/6 lg:w-1/2">
+            <li class="relative pl-5 mb-1">JavaScript (ES6+)</li>
+            <li class="relative pl-5 mb-1">React Native</li>
+            <li class="relative pl-5 mb-1">PHP</li>
+            <li class="relative pl-5 mb-1">PostgreSQL</li>
+            <li class="relative pl-5 mb-1">Node. JS</li>
+            <li class="relative pl-5 mb-1">Git</li>
+        </div>
+      </div>
+    </Section>
   </Content>
 </BaseLayout>

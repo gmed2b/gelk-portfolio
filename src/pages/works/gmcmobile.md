@@ -1,7 +1,7 @@
 ---
 id: 'gmcmobile'
 layout: '../../layouts/WorkLayout.astro'
-heroImage: '/placeholder-hero.jpg'
+heroImage: '/images/gmc-mobile.png'
 title: "Lead Full-stack Developer"
 subtitle: "Unigest Solutions"
 description: "Bringing bleeding edge web managment software to mobile, to be used by technicians on site.
@@ -12,3 +12,7 @@ targetedCompetences: ['React Native', 'Expo', 'Typescript', 'PostgreSQL', 'TypeO
 ---
 
 ## Introduction
+
+GMC Mobile est une version smartphone simplifée du logiciel Webgestion. C'est est une application de GMAO mobile. Elle permet de traiter les interventions de maintenance des machines et équipements. Elle est destiné aux techniciens sur le terrain, pouvant ainsi traiter une intervention de maintenance au pied de la machine. Ils peuvent renseigner : le temps passé, les pièces détachées nécessaire à la maintenance, écrire un rapport, prendre une photo et enfin faire signer le client. GMC mobile est destinée à tous types de secteur d'activité, pour les entreprises de service ou bien pour des besoin internes tel que les hopitaux par exemple.
+
+Sa force réside dans le fait qu'elle embarque les informations utiles pour le technicien, de tel sorte qu'il puissent traiter l'ensemble des tâches attribués.
