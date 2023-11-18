@@ -1,13 +1,13 @@
-import { defineConfig } from 'astro/config'
-import sitemap from '@astrojs/sitemap'
-import react from '@astrojs/react'
 import image from '@astrojs/image'
+import react from '@astrojs/react'
+import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
+import { defineConfig } from 'astro/config'
 import addClasses from 'rehype-add-classes'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://gelk.tech',
+  site: 'https://gelk.fr',
   integrations: [
     sitemap(),
     react(),
