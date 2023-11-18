@@ -1,15 +1,14 @@
 ---
 import { Image } from '@astrojs/image/components'
-import BaseLayout from '../layouts/BaseLayout.astro'
-import Masthead from '../components/Masthead.astro'
 import Content from '../components/Content.astro'
+import Masthead from '../components/Masthead.astro'
 import Section from '../components/Section.astro'
 import SeeMore from '../components/SeeMore.astro'
 import Work from '../components/Work.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
 
 // const projects = (await Astro.glob('./projects/*.md'))
-const works = (await Astro.glob('./works/*.md'))
-
+const works = await Astro.glob('./works/*.md')
 ---
 
 <BaseLayout>
@@ -50,16 +49,15 @@ const works = (await Astro.glob('./works/*.md'))
     >
       <ul class="flex flex-col gap-4">
         {
-          [...works]
-            .map(item => (
-              <Work
-                url={item.frontmatter.url ?? item.url ?? '/'}
-                title={item.frontmatter.title}
-                subtitle={item.frontmatter.subtitle}
-                description={item.frontmatter.description}
-                heroImage={item.frontmatter.heroImage}
-              />
-            ))
+          [...works].map(item => (
+            <Work
+              url={item.frontmatter.url ?? item.url ?? '/'}
+              title={item.frontmatter.title}
+              subtitle={item.frontmatter.subtitle}
+              description={item.frontmatter.description}
+              heroImage={item.frontmatter.heroImage}
+            />
+          ))
         }
         <SeeMore location={'/works'} />
       </ul>
@@ -78,23 +76,40 @@ const works = (await Astro.glob('./works/*.md'))
         />
         <div>
           <p>
-            Hello, my name is <b>Mehdi Ghoulam</b>, a 20-year-old student at the University of Corte in Corsica, and a <b class="text-sky-600">full-stack web and mobile developer</b>. Having started my apprenticeship as a self-taught learner over three years ago, I've acquired <b class="text-sky-600">solid</b> experience and <b class="text-sky-600">versatility</b> in various programming languages and frameworks.
+            Hello, my name is <b>Mehdi Ghoulam</b>, a 21-year-old student at the
+            University of Corte in Corsica, and a <b class="text-sky-600"
+              >full-stack web and mobile developer</b
+            >. Having started my apprenticeship as a self-taught learner over
+            three years ago, I've acquired <b class="text-sky-600">solid</b> experience
+            and <b class="text-sky-600">versatility</b> in various programming languages
+            and frameworks.
           </p>
-          <br>
+          <br />
           <p>
-            Graduated with a high school diploma and a newly acquired Higher National Diploma. I'm currently working on a <b>university degree in <span class="text-sky-600">computer science</span></b>. I am also a <b>freelance developer</b> and I work on <b>personal projects</b> in my spare time.
+            Graduated with a high school diploma and a newly acquired Higher
+            National Diploma. I'm currently working on a <b
+              >university degree in <span class="text-sky-600"
+                >computer science</span
+              ></b
+            >. I am also a <b>freelance developer</b> and I work on <b
+              >personal projects</b
+            > in my spare time.
           </p>
-          <br>
+          <br />
           <p class="mb-2">
             Here are a few technologies I've been working with recently:
           </p>
-          <ul id="technologies-list" class="flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-3 md:w-4/6 lg:w-1/2">
+          <ul
+            id="technologies-list"
+            class="flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-3 md:w-4/6 lg:w-1/2"
+          >
             <li class="relative pl-5 mb-1">JavaScript (ES6+)</li>
+            <li class="relative pl-5 mb-1">Node.JS</li>
+            <li class="relative pl-5 mb-1">React</li>
             <li class="relative pl-5 mb-1">React Native</li>
             <li class="relative pl-5 mb-1">PHP</li>
             <li class="relative pl-5 mb-1">PostgreSQL</li>
-            <li class="relative pl-5 mb-1">Node. JS</li>
-            <li class="relative pl-5 mb-1">Git</li>
+          </ul>
         </div>
       </div>
     </Section>

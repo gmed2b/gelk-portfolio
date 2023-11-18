@@ -1,5 +1,6 @@
 {
   "name": "gelk-portfolio",
+  "author": "Mehdi Ghoulam<mehdi@gelk.fr>",
   "license": "MIT",
   "type": "module",
   "version": "0.0.1",
@@ -8,8 +9,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro",
-    "copy": "sudo cp -R ~/gelk-portfolio/dist/* /var/www/gelk.tech"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/image": "^0.14.1",
