@@ -1,4 +1,21 @@
-<section class="mb-6 h-[45vh] flex flex-col justify-center items-center gap-5">
+---
+import { Image } from '@astrojs/image/components'
+---
+
+<section
+  class="relative mb-6 h-[45vh] flex flex-col justify-center items-center gap-8 shadow-inner"
+>
+  <div class="absolute w-full h-full overflow-hidden">
+    <Image
+      class="absolute h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2 opacity-25"
+      src={'/images/cloudy-forest.jpg'}
+      alt="Author: Adam Smok<https://www.flickr.com/photos/37034324@N05/>"
+      format={'webp'}
+      width={1920}
+      height={1200}
+      aspectRatio={16 / 10}
+    />
+  </div>
   <div class="z-10 px-8 drop-shadow-lg shadow-black font-rubik">
     <h1 class="text-4xl md:text-6xl xl:text-7xl font-bold text-center">
       Hey, I&apos;m <span class="text-sky-600">Mehdi</span>
@@ -7,9 +24,11 @@
       Fullstack web developer
     </h2>
   </div>
-  <p class="w-3/4 md:max-w-2xl pl-3 text-lg lg:text-xl border-l-2 border-sky-600">
-    Student at the University of Corsica, I am passionate about web
-    development. I&apos;d would like to be a <b class="text-sky-600 font-bold"
+  <p
+    class="z-10 w-3/4 md:max-w-2xl pl-3 text-lg lg:text-xl border-l-2 border-sky-600"
+  >
+    Student at the University of Corsica, I am passionate about web development.
+    I&apos;d would like to be a <b class="text-sky-600 font-bold"
       >fullstack developer</b
     > and build things for the <b>mobile</b>
     <b class="text-sky-600 font-bold">&</b>
